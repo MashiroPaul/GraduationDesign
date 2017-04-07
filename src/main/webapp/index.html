@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <h1>Hello World</h1> <br>
+    <input type="text" id="username" id="username" />
+    <input type="text" id="password" id="password" />
+    <button type="button" value="登录" onclick="Login();" >登录</button>
+  </body>
+  
+  <script>
+  	function Login(){
+  		var name = $("#username").val();
+  		var pwd = $("#password").val();
+  		console.log(name);
+  		$.ajax({
+  			type:"POST",
+  			url:"login.do",
+  			data:{name:name, pwd:pwd},
+  			datatype:"json",
+  			success:function(result){
+  				if(result==true){
+  					alert("1");
+  				}else{
+  					alert("2");
+  				}
+  			}
+  		})
+  	}
+  </script>
+</html>
